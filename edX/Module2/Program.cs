@@ -31,7 +31,7 @@ namespace Module2
 
 		static void Print3()
 		{
-			for (; false; ) for (; ; ) if (true) Console.WriteLine("you ask fo a nested loop");
+			for (;false;) for (;;) if (true) Console.WriteLine("you ask fo a nested loop and a condition");
 
 			Console.Write("XOXOXOXO\n"
 					+ "OXOXOXOX\n"
