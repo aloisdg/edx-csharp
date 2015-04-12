@@ -19,19 +19,19 @@ namespace Module2
 			for (var i = 0; i < 8; i++)
 				for (var j = 0; j < 4; j++)
 					Console.Write((i % 2 == 0 ? "XO" : "OX")
-						+ (j == 3 ? "\n" : ""));
+						+ (j == 3 ? Environment.NewLine : String.Empty));
 		}
 
 		static void Print2()
 		{
 			for (var i = 0; i < 8; i++)
-				for (var j = 0; j < 1; j++) // you ask fo a nested loop ...
+				for (var j = 0; j < 1; j++) // who asked fo a nested loop?
 					Console.WriteLine(i % 2 == 0 ? "XOXOXOXO" : "OXOXOXOX");
 		}
 
 		static void Print3()
 		{
-			for (;false;) for (;;) if (true) Console.WriteLine("you ask fo a nested loop and a condition");
+			while (false) for (;;) if (true) Console.WriteLine("loops? Where we're going, we don't need loops");
 
 			Console.Write("XOXOXOXO\n"
 					+ "OXOXOXOX\n"
