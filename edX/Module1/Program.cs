@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -12,32 +14,24 @@ namespace Module1
 		/// <summary>
 		/// Facebook allow 71 gender options
 		/// </summary>
-		enum Gender
+		public enum Gender
 		{
 			Male,
 			Female,
 			Other
 		}
 
-		enum SchoolStatus
+		public enum SchoolStatus
 		{
 			Student,
 			Professor,
 			Other
 		}
 
-		enum DegreeType
-		{
-			Bachelor,
-			Master,
-			PhD,
-			Other
-		}
-
 		/// <summary>
 		/// AddressLine3 is required for some countries like France
 		/// </summary>
-		class Address
+		public class Address
 		{
 			public string AddressLine1 { get; set; }
 			public string AddressLine2 { get; set; }
@@ -48,7 +42,7 @@ namespace Module1
 			public string Country { get; set; }
 		}
 
-		abstract class APerson
+		public abstract class APerson
 		{
 			public string FirstName { get; set; }
 			public string LastName { get; set; }
@@ -59,33 +53,92 @@ namespace Module1
 			public abstract SchoolStatus SchoolStatus { get; }
 		}
 
-		class Student : APerson
+		public class Student : APerson
 		{
 			public override SchoolStatus SchoolStatus { get { return SchoolStatus.Student; }}
 		}
 
-		class Professor : APerson
+		public class Professor : APerson
 		{
 			public override SchoolStatus SchoolStatus { get { return SchoolStatus.Professor; }}
 		}
 
-
-		// TODO : Idea for a degreeType notation ? I dont want to keep hungarian
-		interface IDegree
+		public class Degree
 		{
-			string Name { get; set; }
-			//string DegreeType Dt { get; set; }
+			public string Name { get; set; }
+			public string FullName { get; set; }
+			public int CreditsRequired { get; set; }
 		}
 
-		class University
+		public class University
 		{
-			IEnumerable<Student> Students { get; set; }
-			IEnumerable<Professor> Professors { get; set; }
-			private IEnumerable<IDegree> Degrees { get; set; }
+			public string Name { get; set; }
+			public string FullName { get; set; }
+			public Address Adress { get; set; }
+			public IEnumerable<Degree> Degrees { get; set; }
+			public IEnumerable<Student> Students { get; set; }
+			public IEnumerable<Professor> Professors { get; set; }
 		}
 
 		static void Main(string[] args)
 		{
+			var hogwarts = new University
+			{
+				Name = "Hogwarts",
+				FullName = "Hogwarts School of Witchcraft and Wizardry",
+				Adress = new Address { Country = "Scotland"},
+				Degrees = new Collection<Degree>
+				{
+					new Degree
+					{
+						Name = "O.W.L.",
+						FullName = "Ordinary Wizarding Level",
+						CreditsRequired = 180
+					},
+					new Degree
+					{
+						Name = "N.E.W.T.",
+						FullName = "Nastily Exhausting Wizarding Test",
+						CreditsRequired = 300
+					},
+				},
+				Students = new Collection<Student>
+				{
+					new Student
+					{
+						FirstName = "Harry",
+						LastName = "Potter",
+						Gender = Gender.Male,
+						Birthdate = new DateTime(1980, 7, 31),
+						Address = new Address
+						{
+							AddressLine1 = "The Cupboard under the Stairs",
+							AddressLine2 = "4, Privet Drive",
+							City = "Little Whinging",
+							State = "Surrey",
+							Country = "England"
+						}
+					}
+				},
+				Professors = new Collection<Professor>
+				{
+					new Professor
+					{
+						FirstName = "Remus",
+						LastName = "Lupin",
+						Gender = Gender.Male,
+						Birthdate = new DateTime(1960, 3, 10),
+						Address = new Address
+						{
+							AddressLine1 = "The Shrieking Shack",
+							City = "Hogsmeade",
+							Country = "Scotland"
+						}
+					}
+				}
+			};
+
+			Console.ReadLine();
 		}
 	}
 }
