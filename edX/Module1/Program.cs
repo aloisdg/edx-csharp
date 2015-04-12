@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace Module1
@@ -81,7 +76,7 @@ namespace Module1
 			public IEnumerable<Professor> Professors { get; set; }
 		}
 
-		static void Main(string[] args)
+		static void Main()
 		{
 			var hogwarts = new University
 			{
@@ -138,7 +133,7 @@ namespace Module1
 					}
 				}
 			};
-			string json = JsonConvert.SerializeObject(hogwarts, Formatting.Indented);
+			var json = JsonConvert.SerializeObject(hogwarts, Formatting.Indented);
 			Console.WriteLine(json);
 			Console.ReadLine();
 		}
