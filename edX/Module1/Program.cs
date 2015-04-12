@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Module1
 {
@@ -137,7 +138,8 @@ namespace Module1
 					}
 				}
 			};
-
+			string json = JsonConvert.SerializeObject(hogwarts, Formatting.Indented);
+			Console.WriteLine(json);
 			Console.ReadLine();
 		}
 	}
