@@ -77,7 +77,7 @@ namespace Module3
 
 		private static string HandleInputOutput(string output)
 		{
-			Console.WriteLine("Enter {0}: ", output);
+			Console.WriteLine("Enter {0}:", output);
 			return ReadInput();
 		}
 
