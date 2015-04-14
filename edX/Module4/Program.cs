@@ -8,8 +8,9 @@ namespace Module4
 {
 	class Program
 	{
-
-
+		/// <summary>
+		/// We override ToString to pretty print
+		/// </summary>
 		struct Student
 		{
 			private readonly string _firstName;
@@ -27,17 +28,17 @@ namespace Module4
 				if (birthDate > DateTime.Today.AddYears(-_age)) _age--;
 			}
 
-			public string FirstName
+			private string FirstName
 			{
 				get { return _firstName; }
 			}
 
-			public string LastName
+			private string LastName
 			{
 				get { return _lastName; }
 			}
 
-			public int Age
+			private int Age
 			{
 				get { return _age; }
 			}
@@ -49,12 +50,15 @@ namespace Module4
 
 			public override string ToString()
 			{
-				return FirstName + " "
-				       + LastName + " "
-				       + Age;
+				return FirstName.PadRight(12)
+				       + LastName.PadRight(12)
+				       + Age + " years old";
 			}
 		}
 
+		/// <summary>
+		/// A Teacher is a person like a student.
+		/// </summary>
 		struct Teacher
 		{
 			private readonly string _firstName;
@@ -65,34 +69,37 @@ namespace Module4
 			public Teacher(string firstName, string lastName, DateTime birthDate)
 				: this()
 			{
-				_firstName = FirstName;
-				_lastName = LastName;
+				_firstName = firstName;
+				_lastName = lastName;
 				_birthDate = birthDate;
 				_age = (DateTime.Today.Year - birthDate.Year);
 				if (birthDate > DateTime.Today.AddYears(-_age)) _age--;
 			}
 
-			public string FirstName
+			private string FirstName
 			{
 				get { return _firstName; }
 			}
 
-			public string LastName
+			private string LastName
 			{
 				get { return _lastName; }
 			}
 
-			public int Age
+			private int Age
 			{
 				get { return _age; }
 			}
 
-			public DateTime BirthDate
+			private DateTime BirthDate
 			{
 				get { return _birthDate; }
 			}
 		}
 
+		/// <summary>
+		/// We cant use Program
+		/// </summary>
 		struct Prog
 		{
 			private readonly string _name;
@@ -102,6 +109,20 @@ namespace Module4
 			}
 
 			public Prog(string name)
+			{
+				_name = name;
+			}
+		}
+
+		struct Course
+		{
+			private readonly string _name;
+			public string Name
+			{
+				get { return _name; }
+			}
+
+			public Course(string name)
 			{
 				_name = name;
 			}
@@ -123,6 +144,7 @@ namespace Module4
 
 			var teacher = new Teacher("Remus", "Lupin", new DateTime(1960, 3, 10));
 			var program = new Prog("edx");
+			var course = new Course();
 
 			Console.ReadLine();
 		}
