@@ -41,8 +41,8 @@ namespace Module3
 		/// </summary>
 		private static void GetPeople()
 		{
-			const string studentStatus =	"student";
-			const string teacherStatus =	"teacher";
+			const string studentStatus = "student";
+			const string teacherStatus = "teacher";
 
 			GetPerson(studentStatus);
 			GetPerson(teacherStatus);
@@ -54,29 +54,24 @@ namespace Module3
 		/// <param name="status">The status.</param>
 		private static void GetPerson(string status)
 		{
-			string firstName =	null;
-			string lastName =	null;
-			ushort? age =		null;
+			string firstName = null;
+			string lastName = null;
+			DateTime? birthday = null;
 
-			SetPersonDetails(status, ref firstName, ref lastName, ref age);
-			PrintPersonDetails(status, firstName, lastName, age);
+			SetPersonDetails(status, ref firstName, ref lastName, ref birthday);
+			PrintPersonDetails(firstName, lastName, birthday ?? default(DateTime));
 			Console.WriteLine();
 		}
 
 		/// <summary>
 		/// Prints the person details.
 		/// </summary>
-		/// <param name="status">The status.</param>
-		/// <param name="firstName">The first name.</param>
-		/// <param name="lastName">The last name.</param>
-		/// <param name="age">The age.</param>
-		private static void PrintPersonDetails(string status, string firstName, string lastName, ushort? age)
+		/// <param name="first">The first.</param>
+		/// <param name="last">The last.</param>
+		/// <param name="birthday">The birthday.</param>
+		private static void PrintPersonDetails(string first, string last, DateTime birthday)
 		{
-			Console.WriteLine("{1}'s detail{0}" +
-					  "{1}'s first name :\t{2}{0}" +
-					  "{1}'s last name :\t{3}{0}" +
-					  "{1}'s age :\t\t{4}",
-				Environment.NewLine, status, firstName, lastName, age);
+			Console.WriteLine("{0} {1} was born on: {2}", first, last, birthday);
 		}
 
 		/// <summary>
@@ -87,17 +82,31 @@ namespace Module3
 		/// <param name="lastName">The last name.</param>
 		/// <param name="age">The age.</param>
 		/// <exception cref="System.Exception">Age invalid!</exception>
-		private static void SetPersonDetails(string status, ref string firstName, ref string lastName, ref ushort? age)
+		private static void SetPersonDetails(string status, ref string firstName, ref string lastName, ref DateTime? birthday)
 		{
-			const string output =	"the {0}'s {1} ";
-			const ushort ageMax =	200;
-			ushort num;
+			const string output = "the {0}'s {1} ";
+			const ushort ageMax = 142;
+			DateTime date;
 
 			firstName = HandleInputOutput(String.Format(output, status, "first name"));
 			lastName = HandleInputOutput(String.Format(output, status, "last name"));
-			if (!UInt16.TryParse(HandleInputOutput(String.Format(output, status, "age")).Trim(), out num) || num > ageMax)
+			if (!DateTime.TryParse(HandleInputOutput(String.Format(output, status, "birthday")).Trim(), out date)
+			    ||  GetAge(date) > ageMax)
 				throw new Exception("Age invalid!");
-			age = num;
+			birthday = date;
+		}
+
+		/// <summary>
+		/// Gets the age from the birthday.
+		/// </summary>
+		/// <param name="birthday">The birthday.</param>
+		/// <returns>age</returns>
+		private static int GetAge(DateTime birthday)
+		{
+			var age = DateTime.Today.Year - birthday.Year;
+			if (birthday > DateTime.Today.AddYears(-age))
+				age--;
+			return age;
 		}
 
 		/// <summary>
