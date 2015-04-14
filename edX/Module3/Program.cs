@@ -10,11 +10,14 @@ namespace Module3
 {
 	public class Program
 	{
+		/// <summary>
+		/// Defines the entry point of the application.
+		/// </summary>
 		public static void Main()
 		{
 			try
 			{
-				HandlePeople();
+				GetPeople();
 
 				// ToDo
 				// course
@@ -33,16 +36,23 @@ namespace Module3
 			}
 		}
 
-		private static void HandlePeople()
+		/// <summary>
+		/// Handles student and teacher in one time.
+		/// </summary>
+		private static void GetPeople()
 		{
 			const string studentStatus =	"student";
 			const string teacherStatus =	"teacher";
 
-			HandlePerson(studentStatus);
-			HandlePerson(teacherStatus);
+			GetPerson(studentStatus);
+			GetPerson(teacherStatus);
 		}
 
-		private static void HandlePerson(string status)
+		/// <summary>
+		/// Gets the person.
+		/// </summary>
+		/// <param name="status">The status.</param>
+		private static void GetPerson(string status)
 		{
 			string firstName =	null;
 			string lastName =	null;
@@ -53,6 +63,13 @@ namespace Module3
 			Console.WriteLine();
 		}
 
+		/// <summary>
+		/// Prints the person details.
+		/// </summary>
+		/// <param name="status">The status.</param>
+		/// <param name="firstName">The first name.</param>
+		/// <param name="lastName">The last name.</param>
+		/// <param name="age">The age.</param>
 		private static void PrintPersonDetails(string status, string firstName, string lastName, ushort? age)
 		{
 			Console.WriteLine("{1}'s detail{0}" +
@@ -62,6 +79,14 @@ namespace Module3
 				Environment.NewLine, status, firstName, lastName, age);
 		}
 
+		/// <summary>
+		/// Sets the person details.
+		/// </summary>
+		/// <param name="status">The status.</param>
+		/// <param name="firstName">The first name.</param>
+		/// <param name="lastName">The last name.</param>
+		/// <param name="age">The age.</param>
+		/// <exception cref="System.Exception">Age invalid!</exception>
 		private static void SetPersonDetails(string status, ref string firstName, ref string lastName, ref ushort? age)
 		{
 			const string output =	"the {0}'s {1} ";
@@ -75,12 +100,22 @@ namespace Module3
 			age = num;
 		}
 
+		/// <summary>
+		/// Handles the input output.
+		/// </summary>
+		/// <param name="output">The output.</param>
+		/// <returns>console input</returns>
 		private static string HandleInputOutput(string output)
 		{
 			Console.WriteLine("Enter {0}:", output);
 			return ReadInput();
 		}
 
+		/// <summary>
+		/// Reads the input.
+		/// </summary>
+		/// <returns>console input</returns>
+		/// <exception cref="System.Exception">Input is null, empty or consists exclusively of white-space characters.</exception>
 		private static string ReadInput()
 		{
 			string input;
@@ -89,6 +124,12 @@ namespace Module3
 			throw new Exception("Input is null, empty or consists exclusively of white-space characters.");
 		}
 
+		/// <summary>
+		/// Determines whether the specified value is not null nor white space.
+		/// </summary>
+		/// <param name="value">The value.</param>
+		/// <param name="result">The result.</param>
+		/// <returns>is not null nor white space</returns>
 		public static bool IsNotNullNorWhiteSpace(string value, out string result)
 		{
 			result = String.Empty;
