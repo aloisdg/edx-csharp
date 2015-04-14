@@ -130,7 +130,10 @@ namespace Module4
 
 		static void Main()
 		{
-			var students = new[]
+			var teacher =	new Teacher("Remus", "Lupin", new DateTime(1960, 3, 10));
+			var program =	new Prog("edx");
+			var course =	new Course();
+			var students =	new[]
 			{
 				new Student("Harry", "Potter", new DateTime(1980, 7, 31)),
 				new Student("Ron", "Weasley", new DateTime(1980, 3, 1)),
@@ -138,14 +141,9 @@ namespace Module4
 				new Student("Fred", "Weasley", new DateTime(1978, 4, 1)),
 				new Student("George", "Weasley", new DateTime(1978, 4, 1)),
 			};
-
+			
 			foreach (var student in students)
 				Console.WriteLine(student.ToString());
-
-			var teacher = new Teacher("Remus", "Lupin", new DateTime(1960, 3, 10));
-			var program = new Prog("edx");
-			var course = new Course();
-
 			Console.ReadLine();
 		}
 	}
