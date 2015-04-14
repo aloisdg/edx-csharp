@@ -16,7 +16,8 @@ namespace Module3
 		{
 			try
 			{
-				GetPeopleInfo();
+				GetPersonInfo("student");
+				GetPersonInfo("teacher");
 				GetInfo("course");
 				GetInfo("program");
 				GetInfo("degree");
@@ -66,18 +67,6 @@ namespace Module3
 		}
 
 		#region people
-
-		/// <summary>
-		/// Handles student and teacher in one time.
-		/// </summary>
-		private static void GetPeopleInfo()
-		{
-			const string studentStatus = "student";
-			const string teacherStatus = "teacher";
-
-			GetPersonInfo(studentStatus);
-			GetPersonInfo(teacherStatus);
-		}
 
 		/// <summary>
 		/// Gets the person.
