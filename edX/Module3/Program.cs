@@ -7,6 +7,11 @@ namespace Module3
 		/// <summary>
 		/// Defines the entry point of the application.
 		/// </summary>
+		/// <remarks>
+		/// You can find each exception in the code.
+		/// You can download the solution here :
+		/// <see href="https://github.com/aloisdg/edX/archive/master.zip" />
+		/// </remarks>
 		public static void Main()
 		{
 			try
@@ -26,6 +31,38 @@ namespace Module3
 				Console.WriteLine("Thank you. See you next time.");
 				Console.ReadLine();
 			}
+		}
+
+		/// <summary>
+		/// Gets the information.
+		/// </summary>
+		/// <param name="s">The s.</param>
+		private static void GetInfo(string s)
+		{
+			string name;
+			SetDetails(s, out name);
+			PrintDetails(s, name);
+			Console.WriteLine();
+		}
+
+		/// <summary>
+		/// Sets the details.
+		/// </summary>
+		/// <param name="s">The s.</param>
+		/// <param name="name">The name.</param>
+		private static void SetDetails(string s, out string name)
+		{
+			name = HandleInputOutput(s + " name");
+		}
+
+		/// <summary>
+		/// Prints the details.
+		/// </summary>
+		/// <param name="s">The s.</param>
+		/// <param name="name">The name.</param>
+		private static void PrintDetails(string s, string name)
+		{
+			Console.WriteLine("{0}'s name is: {1}", s, name);
 		}
 
 		#region people
@@ -55,17 +92,6 @@ namespace Module3
 			SetPersonDetails(status, ref firstName, ref lastName, ref birthday);
 			PrintPersonDetails(firstName, lastName, birthday ?? default(DateTime));
 			Console.WriteLine();
-		}
-
-		/// <summary>
-		/// Prints the person details.
-		/// </summary>
-		/// <param name="first">The first.</param>
-		/// <param name="last">The last.</param>
-		/// <param name="birthday">The birthday.</param>
-		private static void PrintPersonDetails(string first, string last, DateTime birthday)
-		{
-			Console.WriteLine("{0} {1} was born on: {2}", first, last, birthday);
 		}
 
 		/// <summary>
@@ -112,40 +138,18 @@ namespace Module3
 			return age;
 		}
 
+		/// <summary>
+		/// Prints the person details.
+		/// </summary>
+		/// <param name="first">The first.</param>
+		/// <param name="last">The last.</param>
+		/// <param name="birthday">The birthday.</param>
+		private static void PrintPersonDetails(string first, string last, DateTime birthday)
+		{
+			Console.WriteLine("{0} {1} was born on: {2}", first, last, birthday);
+		}
+
 		#endregion
-
-		/// <summary>
-		/// Gets the information.
-		/// </summary>
-		/// <param name="s">The s.</param>
-		private static void GetInfo(string s)
-		{
-			string name = null;
-
-			SetDetails(s, ref name);
-			PrintDetails(s, name);
-			Console.WriteLine();
-		}
-
-		/// <summary>
-		/// Prints the details.
-		/// </summary>
-		/// <param name="s">The s.</param>
-		/// <param name="name">The name.</param>
-		private static void PrintDetails(string s, string name)
-		{
-			Console.WriteLine("{0}'s name is: {1}", s, name);
-		}
-
-		/// <summary>
-		/// Sets the details.
-		/// </summary>
-		/// <param name="s">The s.</param>
-		/// <param name="name">The name.</param>
-		private static void SetDetails(string s, ref string name)
-		{
-			name = HandleInputOutput(s + " name");
-		}
 
 		#region io handler
 
