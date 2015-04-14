@@ -18,11 +18,9 @@ namespace Module3
 			try
 			{
 				GetPeopleInfo();
-
-				// ToDo
-				// course
-				//string courseName = null;
-
+				GetInfo("course");
+				GetInfo("program");
+				GetInfo("degree");
 			}
 			catch (Exception ex)
 			{
@@ -31,10 +29,12 @@ namespace Module3
 			finally
 			{
 				Console.WriteLine("We are going to exit the program.");
-				Console.WriteLine("See you next time.");
+				Console.WriteLine("Thank you. See you next time.");
 				Console.ReadLine();
 			}
 		}
+
+		#region people
 
 		/// <summary>
 		/// Handles student and teacher in one time.
@@ -118,6 +118,43 @@ namespace Module3
 			return age;
 		}
 
+		#endregion
+
+		/// <summary>
+		/// Gets the information.
+		/// </summary>
+		/// <param name="s">The s.</param>
+		private static void GetInfo(string s)
+		{
+			string name = null;
+
+			SetDetails(s, ref name);
+			PrintDetails(s, name);
+			Console.WriteLine();
+		}
+
+		/// <summary>
+		/// Prints the details.
+		/// </summary>
+		/// <param name="s">The s.</param>
+		/// <param name="name">The name.</param>
+		private static void PrintDetails(string s, string name)
+		{
+			Console.WriteLine("{0}'s name is: {1}", s, name);
+		}
+
+		/// <summary>
+		/// Sets the details.
+		/// </summary>
+		/// <param name="s">The s.</param>
+		/// <param name="name">The name.</param>
+		private static void SetDetails(string s, ref string name)
+		{
+			name = HandleInputOutput(s + " name");
+		}
+
+		#region io handler
+
 		/// <summary>
 		/// Handles the input output.
 		/// </summary>
@@ -156,5 +193,7 @@ namespace Module3
 			result = value;
 			return true;
 		}
+
+		#endregion
 	}
 }
