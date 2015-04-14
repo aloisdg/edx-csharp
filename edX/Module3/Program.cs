@@ -80,7 +80,7 @@ namespace Module3
 		/// <param name="status">The status.</param>
 		/// <param name="firstName">The first name.</param>
 		/// <param name="lastName">The last name.</param>
-		/// <param name="age">The age.</param>
+		/// <param name="birthday">The birthday.</param>
 		/// <exception cref="System.Exception">Age invalid!</exception>
 		private static void SetPersonDetails(string status, ref string firstName, ref string lastName, ref DateTime? birthday)
 		{
