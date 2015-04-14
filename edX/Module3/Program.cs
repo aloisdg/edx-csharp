@@ -17,7 +17,7 @@ namespace Module3
 		{
 			try
 			{
-				GetPeople();
+				GetPeopleInfo();
 
 				// ToDo
 				// course
@@ -39,20 +39,20 @@ namespace Module3
 		/// <summary>
 		/// Handles student and teacher in one time.
 		/// </summary>
-		private static void GetPeople()
+		private static void GetPeopleInfo()
 		{
 			const string studentStatus = "student";
 			const string teacherStatus = "teacher";
 
-			GetPerson(studentStatus);
-			GetPerson(teacherStatus);
+			GetPersonInfo(studentStatus);
+			GetPersonInfo(teacherStatus);
 		}
 
 		/// <summary>
 		/// Gets the person.
 		/// </summary>
 		/// <param name="status">The status.</param>
-		private static void GetPerson(string status)
+		private static void GetPersonInfo(string status)
 		{
 			string firstName = null;
 			string lastName = null;
@@ -92,8 +92,17 @@ namespace Module3
 			lastName = HandleInputOutput(String.Format(output, status, "last name"));
 			if (!DateTime.TryParse(HandleInputOutput(String.Format(output, status, "birthday")).Trim(), out date)
 			    ||  GetAge(date) > ageMax)
-				throw new Exception("Age invalid!");
+				HandleWrongAge();
 			birthday = date;
+		}
+
+		/// <summary>
+		/// Handles the wrong age.
+		/// </summary>
+		/// <exception cref="System.NotImplementedException">Age invalid!</exception>
+		public static void HandleWrongAge()
+		{
+			throw new NotImplementedException("Age invalid!");
 		}
 
 		/// <summary>
