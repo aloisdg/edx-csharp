@@ -35,35 +35,37 @@ namespace Module3
 		}
 
 		/// <summary>
-		/// Gets the information.
+		/// Gets the subject.
+		/// Sets his details.
+		/// Print his details.
 		/// </summary>
-		/// <param name="s">The s.</param>
-		private static void GetInfo(string s)
+		/// <param name="subject">The subject</param>
+		private static void GetInfo(string subject)
 		{
 			string name;
-			SetDetails(s, out name);
-			PrintDetails(s, name);
+			SetDetails(subject, out name);
+			PrintDetails(subject, name);
 			Console.WriteLine();
 		}
 
 		/// <summary>
 		/// Sets the details.
 		/// </summary>
-		/// <param name="s">The s.</param>
+		/// <param name="subject">The subject.</param>
 		/// <param name="name">The name.</param>
-		private static void SetDetails(string s, out string name)
+		private static void SetDetails(string subject, out string name)
 		{
-			name = HandleInputOutput(s + " name");
+			name = HandleInputOutput(subject + " name");
 		}
 
 		/// <summary>
-		/// Prints the details.
+		/// Prints the details in the standard output.
 		/// </summary>
-		/// <param name="s">The s.</param>
+		/// <param name="subject">The subject.</param>
 		/// <param name="name">The name.</param>
-		private static void PrintDetails(string s, string name)
+		private static void PrintDetails(string subject, string name)
 		{
-			Console.WriteLine("{0}'s name is: {1}", s, name);
+			Console.WriteLine("{0}'s name is: {1}", subject, name);
 		}
 
 		#region people
@@ -100,7 +102,7 @@ namespace Module3
 			firstName = HandleInputOutput(String.Format(output, status, "first name"));
 			lastName = HandleInputOutput(String.Format(output, status, "last name"));
 			if (!DateTime.TryParse(HandleInputOutput(String.Format(output, status, "birthday")).Trim(), out date)
-			    ||  GetAge(date) > ageMax)
+			    || GetAge(date) > ageMax)
 				HandleWrongAge();
 			birthday = date;
 		}
