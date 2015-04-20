@@ -101,10 +101,17 @@ namespace Module5
 
 		public class Student : APerson
 		{
+			// Add a static class variable to the Student class to track the number of students currently enrolled in a school.
+			// Increment a student object count every time a Student is created.
+			public static uint EnrolledCount;
+
 			public override SchoolStatus SchoolStatus { get { return SchoolStatus.Student; } }
 
 			public Student(string firstName, string lastName, DateTime birthdate)
-				: base(firstName, lastName, birthdate) {}
+				: base(firstName, lastName, birthdate)
+			{
+				EnrolledCount++;
+			}
 		}
 
 		public class Teacher : APerson
@@ -130,7 +137,7 @@ namespace Module5
 				// Add that Teacher object to your Course object.
 				Teachers = new Collection<Teacher> { new Teacher("Remus",  "Lupin", new DateTime(1960, 3, 10)) }
 			};
-
+			
 			// Instantiate a Degree object, such as Bachelor.
 			var degree = new Degree("Bachelor")
 			{
@@ -151,6 +158,9 @@ namespace Module5
 				Console.WriteLine(uProgram + Environment.NewLine);
 				Console.WriteLine(degree + Environment.NewLine);
 				Console.WriteLine(course.ToString());
+
+				// Uncomment the following line to print the current enrolled count 
+				// Console.WriteLine(Student.EnrolledCount);
 			}
 			catch (Exception ex)
 			{
