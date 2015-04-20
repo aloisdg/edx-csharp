@@ -145,12 +145,22 @@ namespace Module5
 				Degree = degree
 			};
 
-			// Using Console.WriteLine statements, output the following information to the console window:
-			Console.WriteLine(uProgram + Environment.NewLine);
-			Console.WriteLine(degree + Environment.NewLine);
-			Console.WriteLine(course.ToString());
-
-			Console.ReadKey();
+			try
+			{
+				// Using Console.WriteLine statements, output the following information to the console window:
+				Console.WriteLine(uProgram + Environment.NewLine);
+				Console.WriteLine(degree + Environment.NewLine);
+				Console.WriteLine(course.ToString());
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+			finally
+			{
+				Console.WriteLine("Press any key to continue ...");
+				Console.ReadLine();
+			}
 		}
 	}
 }
