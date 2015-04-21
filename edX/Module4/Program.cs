@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Module4
 {
@@ -13,39 +9,19 @@ namespace Module4
 		/// </summary>
 		struct Student
 		{
-			private readonly string _firstName;
-			private readonly string _lastName;
-			private readonly int _age;
-			private readonly DateTime _birthDate;
+			public readonly string FirstName;
+			public readonly string LastName;
+			public readonly int Age;
+			public DateTime BirthDate;
 
 			public Student(string firstName, string lastName, DateTime birthDate)
 				: this()
 			{
-				_firstName = firstName;
-				_lastName = lastName;
-				_birthDate = birthDate;
-				_age = (DateTime.Today.Year - birthDate.Year);
-				if (birthDate > DateTime.Today.AddYears(-_age)) _age--;
-			}
-
-			private string FirstName
-			{
-				get { return _firstName; }
-			}
-
-			private string LastName
-			{
-				get { return _lastName; }
-			}
-
-			private int Age
-			{
-				get { return _age; }
-			}
-
-			public DateTime BirthDate
-			{
-				get { return _birthDate; }
+				FirstName = firstName;
+				LastName = lastName;
+				BirthDate = birthDate;
+				Age = (DateTime.Today.Year - birthDate.Year);
+				if (birthDate > DateTime.Today.AddYears(-Age)) Age--;
 			}
 
 			public override string ToString()
@@ -61,39 +37,19 @@ namespace Module4
 		/// </summary>
 		struct Teacher
 		{
-			private readonly string _firstName;
-			private readonly string _lastName;
-			private readonly int _age;
-			private readonly DateTime _birthDate;
+			public string FirstName;
+			public string LastName;
+			public readonly int Age;
+			public DateTime BirthDate;
 
 			public Teacher(string firstName, string lastName, DateTime birthDate)
 				: this()
 			{
-				_firstName = firstName;
-				_lastName = lastName;
-				_birthDate = birthDate;
-				_age = (DateTime.Today.Year - birthDate.Year);
-				if (birthDate > DateTime.Today.AddYears(-_age)) _age--;
-			}
-
-			private string FirstName
-			{
-				get { return _firstName; }
-			}
-
-			private string LastName
-			{
-				get { return _lastName; }
-			}
-
-			private int Age
-			{
-				get { return _age; }
-			}
-
-			private DateTime BirthDate
-			{
-				get { return _birthDate; }
+				FirstName = firstName;
+				LastName = lastName;
+				BirthDate = birthDate;
+				Age = (DateTime.Today.Year - birthDate.Year);
+				if (birthDate > DateTime.Today.AddYears(-Age)) Age--;
 			}
 		}
 
@@ -102,29 +58,21 @@ namespace Module4
 		/// </summary>
 		struct Prog
 		{
-			private readonly string _name;
-			public string Name
-			{
-				get { return _name; }
-			}
+			public readonly string Name;
 
 			public Prog(string name)
 			{
-				_name = name;
+				Name = name;
 			}
 		}
 
 		struct Course
 		{
-			private readonly string _name;
-			public string Name
-			{
-				get { return _name; }
-			}
+			public string Name;
 
 			public Course(string name)
 			{
-				_name = name;
+				Name = name;
 			}
 		}
 
