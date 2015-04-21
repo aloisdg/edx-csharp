@@ -18,7 +18,7 @@ namespace Module5
 
 		public class UProgram
 		{
-			private string Name { get; set; }
+			public string Name { get; private set; }
 			public Degree Degree { get; set; }
 
 			public UProgram(string name)
