@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-// 7.Share your code for feedback and ideas with your fellow students such as:
-
-// 7.1.What other objects could benefit from inheritance in this code?
-//    UProgram, Degree and Course could benefit from inheritance
-
-// 7.2.Can you think of a different hierarchy for the Person, Teacher, and Student?  What is it?
-//    We could remove the Person class and inherit a Student from a Teacher. We could add a variable Status to split them.
-
-// 7.3.Do NOT grade the answers to these two questions, they are merely for discussion and thought.  Only grade the ability to implement inheritance in the code.
+// Hello reviewer !
 
 namespace Module6
 {
-	class Program
+	/// <remarks>
+	/// I like to add a 'A' at the front of abstract class.
+	/// That's why the "Person" class is named "APerson".
+	/// Of course, each class, enum and interface should be in a single file.
+	/// For the review it is not possible.
+	/// </remarks>
+	internal class Program
 	{
 		public enum SchoolStatus
 		{
@@ -24,15 +22,29 @@ namespace Module6
 			Other
 		}
 
-		public class UProgram
+		/// <summary>
+		/// Each class who inherit form this interface have to get a name.
+		/// </summary>
+		public interface INameable
 		{
-			private string Name { get; set; }
-			public Degree Degree { get; set; }
+			string Name { get; }
+		}
 
-			public UProgram(string name)
+		public abstract class ANameable : INameable
+		{
+			public string Name { get; private set; }
+
+			protected ANameable(string name)
 			{
 				Name = name;
 			}
+		}
+
+		public class UProgram : ANameable
+		{
+			public Degree Degree { get; set; }
+
+			public UProgram(string name) : base(name) { }
 
 			public override string ToString()
 			{
@@ -42,15 +54,11 @@ namespace Module6
 			}
 		}
 
-		public class Degree
+		public class Degree : ANameable
 		{
-			public string Name { get; private set; }
 			public Course Course { get; set; }
 
-			public Degree(string name)
-			{
-				Name = name;
-			}
+			public Degree(string name) : base(name) { }
 
 			public override string ToString()
 			{
@@ -60,12 +68,12 @@ namespace Module6
 			}
 		}
 
-		public class Course
+		public class Course : ANameable
 		{
-			public string Name { get; private set; }
 			public IEnumerable<Student> Students { get; set; }
 
 			private IEnumerable<Teacher> _teachers;
+
 			public IEnumerable<Teacher> Teachers
 			{
 				get { return _teachers; }
@@ -77,10 +85,7 @@ namespace Module6
 				}
 			}
 
-			public Course(string name)
-			{
-				Name = name;
-			}
+			public Course(string name) : base(name) { }
 
 			public override string ToString()
 			{
@@ -91,16 +96,17 @@ namespace Module6
 		}
 
 		// 1.Create a Person base class with common attributes for a person
-		public abstract class APerson
+		public abstract class APerson : INameable
 		{
-			public string FirstName { get; set; }
-			public string LastName { get; set; }
+			public string Name { get; private set; }
+			public string FirstName { get; protected set; }
+			public string LastName { get; protected set; }
 			public DateTime Birthdate { get; set; }
-
 			public abstract SchoolStatus SchoolStatus { get; }
 
 			protected APerson(string firstName, string lastName, DateTime birthdate)
 			{
+				Name = firstName + " " + lastName;
 				FirstName = firstName;
 				LastName = lastName;
 				Birthdate = birthdate;
@@ -117,7 +123,10 @@ namespace Module6
 				: base(firstName, lastName, birthdate) { }
 
 			// 4.Modify your Student and Teacher classes so they include characteristics specific to their type.
-			public void TakeTest() { }
+			public void TakeTest()
+			{
+				Console.WriteLine("Student takes the test.");
+			}
 		}
 
 		// 2.Make your Student and Teacher classes inherit from the Person base class
@@ -129,11 +138,14 @@ namespace Module6
 			public Teacher(string firstName, string lastName, DateTime birthdate)
 				: base(firstName, lastName, birthdate) { }
 
-			// 4.Modify your Student and Teacher classes so they include characteristics specific to their type. 
-			public void GradeTest() { }
+			// 4.Modify your Student and Teacher classes so they include characteristics specific to their type.
+			public void GradeTest()
+			{
+				Console.WriteLine("Teacher grades the test.");
+			}
 		}
 
-		static void Main()
+		private static void Main()
 		{
 			// 5.Run the same code in Program.cs from Module 5 to create instances of your classes
 			// so that you can setup a single course that is part of a program and a degree path.
@@ -173,3 +185,13 @@ namespace Module6
 		}
 	}
 }
+
+// 7.Share your code for feedback and ideas with your fellow students such as:
+
+// 7.1.What other objects could benefit from inheritance in this code?
+//    UProgram, Degree, Course and APerson could benefit from inheritance. See the interface INameable.
+
+// 7.2.Can you think of a different hierarchy for the Person, Teacher, and Student?  What is it?
+//    We could remove the Person class and inherit a Student from a Teacher. We could add a variable Status to split them.
+
+// 7.3.Do NOT grade the answers to these two questions, they are merely for discussion and thought.  Only grade the ability to implement inheritance in the code.
