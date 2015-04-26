@@ -8,15 +8,6 @@ using System.Threading.Tasks;
 
 namespace Module7
 {
-
-	//Create a Stack object inside the Student object, called Grades, to store test scores.
-	//Create 3 student objects.
-	//Add 5 grades to the the Stack in the each Student object. (this does not have to be inside the constructor because you may not have grades for a student when you create a new student.)
-	//Add the three Student objects to the Students ArrayList inside the Course object.
-	//Using a foreach loop, iterate over the Students in the ArrayList and output their first and last names to the console window. (For this exercise you MUST cast the returned object from the ArrayList to a Student object.  Also, place each student name on its own line)
-	//Create a method inside the Course object called ListStudents() that contains the foreach loop.
-	//Call the ListStudents() method from Main().
-
 	class Program
 	{
 		#region enum
@@ -47,6 +38,11 @@ namespace Module7
 			protected ANameable(string name)
 			{
 				Name = name;
+			}
+
+			public override string ToString()
+			{
+				return Name;
 			}
 		}
 
@@ -131,6 +127,15 @@ namespace Module7
 
 			public Course(string name) : base(name) { }
 
+			//Create a method inside the Course object called ListStudents() that contains the foreach loop.
+			public void ListStudents()
+			{
+				//Using a foreach loop, iterate over the Students in the ArrayList and output their first and last names to the console window.
+				//(For this exercise you MUST cast the returned object from the ArrayList to a Student object.  Also, place each student name on its own line)
+				foreach (var student in Students.OfType<Student>())
+					Console.WriteLine(student.ToString());
+			}
+
 			public override string ToString()
 			{
 				return "The " + Name
@@ -139,9 +144,23 @@ namespace Module7
 			}
 		}
 
+		public class Grade : ANameable
+		{
+			public int Score { get; private set; }
+
+			public Grade(string name, int score)
+				: base(name)
+			{
+				Score = score;
+			}
+		}
+
 		public class Student : APerson
 		{
 			public override SchoolStatus SchoolStatus { get { return SchoolStatus.Student; } }
+
+			//Create a Stack object inside the Student object, called Grades, to store test scores.
+			public Stack<Grade> Grades { get; set; }
 
 			public Student(string firstName, string lastName, DateTime birthdate)
 				: base(firstName, lastName, birthdate) { }
@@ -169,28 +188,42 @@ namespace Module7
 
 		private static void Main()
 		{
-			var uProgram = new UProgram("Information Technology")
-			{
-				Degree = new Degree("Bachelor")
-				{
-					Course = new Course("Programming with C#")
-					{
-						Students = new Collection<Student>
-						{
-							new Student("Harry", "Potter", new DateTime(1980, 7, 31)),
-							new Student("Ron", "Weasley", new DateTime(1980, 3, 1)),
-							new Student("Hermione", "Granger", new DateTime(1979, 9, 19))
-						},
-						Teachers = new Collection<Teacher> { new Teacher("Remus", "Lupin", new DateTime(1960, 3, 10)) }
-					}
-				}
-			};
-
 			try
 			{
-				Console.WriteLine(uProgram + Environment.NewLine);
-				Console.WriteLine(uProgram.Degree + Environment.NewLine);
-				Console.WriteLine(uProgram.Degree.Course.ToString());
+				//Create 3 student objects.
+				var students = new Students
+				{
+					new Student("Harry", "Potter", new DateTime(1980, 7, 31)),
+					new Student("Ron", "Weasley", new DateTime(1980, 3, 1)),
+					new Student("Hermione", "Granger", new DateTime(1979, 9, 19))
+				};
+
+				//Add 5 grades to the the Stack in the each Student object.
+				//This does not have to be inside the constructor because you may not have grades for a student when you create a new student.
+				foreach (var obj in students)
+					for (var i = 0; i < 5; i++)
+					{
+						var student = obj as Student;
+						if (student != null)
+							student.Grades.Push(new Grade("Magic", 1));
+					}
+
+				var uProgram = new UProgram("Information Technology")
+				{
+					Degree = new Degree("Bachelor")
+					{
+						Course = new Course("Programming with C#")
+						{
+							//Add the three Student objects to the Students ArrayList inside the Course object.
+							Students = students,
+							Teachers = new Collection<Teacher> { new Teacher("Remus", "Lupin", new DateTime(1960, 3, 10)) }
+						}
+					}
+				};
+
+				//Call the ListStudents() method from Main().
+				uProgram.Degree.Course.ListStudents();
+
 			}
 			catch (Exception ex)
 			{
