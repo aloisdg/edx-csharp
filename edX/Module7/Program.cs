@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Module7
 {
@@ -163,11 +161,19 @@ namespace Module7
 			public Stack<Grade> Grades { get; set; }
 
 			public Student(string firstName, string lastName, DateTime birthdate)
-				: base(firstName, lastName, birthdate) { }
+				: base(firstName, lastName, birthdate)
+			{
+				Grades = new Stack<Grade>();
+			}
 
 			public void TakeTest()
 			{
 				Console.WriteLine("Student takes the test.");
+			}
+
+			public override string ToString()
+			{
+				return Name;
 			}
 		}
 
