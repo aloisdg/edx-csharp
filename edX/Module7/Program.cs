@@ -6,6 +6,27 @@ using System.Linq;
 
 namespace Module7
 {
+	// 1. Used an ArrayList of type Student, inside the Course object.
+	
+	//	Students is an ArrayList. You can find it inside the Course object.
+
+	// 2. Added a Stack called Grades inside the Student object.
+
+	//	I added it inside the Student object. I created an object Grade for fun.
+
+	// 3. Added 3 Student objects to this ArrayList using the ArrayList method for adding objects.
+
+	//	I use my own ArrayList, so I can override the Add() method and add only Student.
+
+	// 4. Used a foreach loop to output the first and last name of each Student in the ArrayList.
+
+	//	I overrided the ToString() method, to print the name directly.
+
+	// 5. Cast the object from the ArrayList to Student, inside the foreach loop, before printing out the name information.
+
+	//	I used the method OfType() to filters the elements of my ArrayList based on the Student type.	
+
+
 	class Program
 	{
 		#region enum
