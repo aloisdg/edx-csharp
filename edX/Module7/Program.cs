@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 
 namespace Module7
 {
@@ -52,7 +53,7 @@ namespace Module7
 
 		public abstract class ANameable : INameable
 		{
-			public string Name { get; private set; }
+			public string Name { get; protected set; }
 
 			protected ANameable(string name)
 			{
@@ -65,17 +66,16 @@ namespace Module7
 			}
 		}
 
-		public abstract class APerson : INameable
+		public abstract class APerson : ANameable
 		{
-			public string Name { get; private set; }
 			public string FirstName { get; protected set; }
 			public string LastName { get; protected set; }
 			public DateTime Birthdate { get; set; }
 			public abstract SchoolStatus SchoolStatus { get; }
 
 			protected APerson(string firstName, string lastName, DateTime birthdate)
+				: base(firstName + " " + lastName)
 			{
-				Name = firstName + " " + lastName;
 				FirstName = firstName;
 				LastName = lastName;
 				Birthdate = birthdate;
@@ -190,11 +190,6 @@ namespace Module7
 			public void TakeTest()
 			{
 				Console.WriteLine("Student takes the test.");
-			}
-
-			public override string ToString()
-			{
-				return Name;
 			}
 		}
 
