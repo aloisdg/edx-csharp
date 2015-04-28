@@ -25,5 +25,5 @@ This course is not a beginner course on C#, although beginners can still learn a
 
 ## Link
 
-* [edx](https://www.edx.org/)
-* [reddit](http://www.reddit.com/r/EdX_CSharp/)
+* [Edx](https://www.edx.org/)
+* [Reddit](http://www.reddit.com/r/EdX_CSharp/)
