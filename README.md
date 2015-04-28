@@ -2,7 +2,7 @@
 
 ## Warning
 
-If you enrolled to this course, remember, the code is dark and full of spoilers.
+If you enrolled to this course, remember, this code is dark and full of spoilers.
 
 ![fuck yeah melisandre](http://31.media.tumblr.com/tumblr_lylbjmCZYm1qjfad9o1_500.gif)
 
