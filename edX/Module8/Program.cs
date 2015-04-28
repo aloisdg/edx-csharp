@@ -136,7 +136,7 @@ namespace Module8
 				// Using a foreach loop, iterate over the Students in the List<T> and output their first and last names to the console window.
 				// (For this exercise, casting is no longer required.  Also, place each student name on its own line)
 				foreach (var student in Students)
-					Console.WriteLine(student.ToString());
+					Console.WriteLine(student);
 			}
 
 			public override string ToString()
