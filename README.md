@@ -2,7 +2,7 @@
 
 ## Warning
 
-If you enrolled to this course, remember, this code is dark and full of spoilers.
+If you enrolled to this course, remember, my code is dark and full of spoilers.
 
 ![fuck yeah melisandre](http://31.media.tumblr.com/tumblr_lylbjmCZYm1qjfad9o1_500.gif)
 
@@ -12,12 +12,13 @@ This course is not a beginner course on C#, although beginners can still learn a
 
 ## Coverage
 
-* Use basic programming data types in C#
-* Use decision statements and repetition
-* Perform object-oriented programming in C#
-* Create and use methods
-* Use complex data structures and collections
-* Work with Generics
+* Use basic programming data types in C# (Module 1)
+* Use decision statements and repetition (Module 2)
+* Create and use methods (Module 3)
+* Use complex data structures (Module 4)
+* Perform object-oriented programming in C# (Module 5 & 6)
+* Work with collections (Module 7)
+* Work with Generics (Module 8)
 * Handle events and write delegates
 * Query data using Language Integrated Query (LINQ)
 * Use threading, multitasking, and parallel programming
