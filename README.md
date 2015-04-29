@@ -12,17 +12,26 @@ This course is not a beginner course on C#, although beginners can still learn a
 
 ## Coverage
 
-* Use basic programming data types in C# (Module 1)
-* Use decision statements and repetition (Module 2)
-* Create and use methods (Module 3)
-* Use complex data structures (Module 4)
-* Perform object-oriented programming in C# (Module 5 & 6)
-* Work with collections (Module 7)
-* Work with Generics (Module 8)
+* Use basic programming data types in C# ([Module 1][1])
+* Use decision statements and repetition ([Module 2][2])
+* Create and use methods ([Module 3][3])
+* Use complex data structures ([Module 4][4])
+* Perform object-oriented programming in C# ([Module 5][5] & [Module 6][6])
+* Work with collections ([Module 7][7])
+* Work with Generics ([Module 8][8])
 * Handle events and write delegates
 * Query data using Language Integrated Query (LINQ)
 * Use threading, multitasking, and parallel programming
 * Program asynchronously
+
+[1]: https://github.com/aloisdg/edX/blob/master/edX/Module1/Program.cs
+[2]: https://github.com/aloisdg/edX/blob/master/edX/Module2/Program.cs
+[3]: https://github.com/aloisdg/edX/blob/master/edX/Module3/Program.cs
+[4]: https://github.com/aloisdg/edX/blob/master/edX/Module4/Program.cs
+[5]: https://github.com/aloisdg/edX/blob/master/edX/Module5/Program.cs
+[6]: https://github.com/aloisdg/edX/blob/master/edX/Module6/Program.cs
+[7]: https://github.com/aloisdg/edX/blob/master/edX/Module7/Program.cs
+[8]: https://github.com/aloisdg/edX/blob/master/edX/Module8/Program.cs
 
 ## Link
 
