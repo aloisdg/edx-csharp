@@ -207,8 +207,8 @@ namespace Module8
 				// Add 5 grades to the the Stack in the each Student object.
 				// This does not have to be inside the constructor because you may not have grades for a student when you create a new student.
 				foreach (var student in students)
-					for (var i = 0; i < 5; i++)
-						student.Grades.Push(new Grade("Magic", 1));
+					student.Grades = new Stack<Grade>(
+						Enumerable.Repeat(new Grade("Magic", 1), 5));
 
 				var uProgram = new UProgram("Information Technology")
 				{
