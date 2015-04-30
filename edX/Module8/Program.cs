@@ -136,7 +136,7 @@ namespace Module8
 				// Using a foreach loop, iterate over the Students in the List<T> and output their first and last names to the console window.
 				// (For this exercise, casting is no longer required.  Also, place each student name on its own line)
 				foreach (var student in Students)
-					Console.WriteLine(student.ToString());
+					Console.WriteLine(student);
 			}
 
 			public override string ToString()
@@ -207,8 +207,8 @@ namespace Module8
 				// Add 5 grades to the the Stack in the each Student object.
 				// This does not have to be inside the constructor because you may not have grades for a student when you create a new student.
 				foreach (var student in students)
-					for (var i = 0; i < 5; i++)
-						student.Grades.Push(new Grade("Magic", 1));
+					student.Grades = new Stack<Grade>(
+						Enumerable.Repeat(new Grade("Magic", 1), 5));
 
 				var uProgram = new UProgram("Information Technology")
 				{
