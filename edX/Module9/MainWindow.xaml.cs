@@ -5,22 +5,22 @@ using System.Windows;
 namespace Module9
 {
 	//	1. Event handler created for the Create Student button
-	//		see line 72
+	//		see line 71
 
 	//	2. Event handler creates a Student object using values from the text boxes on the form
-	//		see line 75
+	//		see line 74
 
 	//	3. Textbox values are cleared
-	//		see line 78
+	//		see line 77
 
 	//	4. Event handler adds a Student object to the List<T>
-	//		see line 80
+	//		see line 79
 
 	//	5. Next button displays each student's information in the text boxes
-	//		see line 94
+	//		see line 93
 
 	//	6. Previous button displays each student's information in the text boxes
-	//		see line 95
+	//		see line 94
 
 	public partial class MainWindow : Window
 	{
@@ -28,7 +28,6 @@ namespace Module9
 		{
 			Next,
 			Previous
-
 		}
 
 		// Add a new class to the project to represent a Student with three properties for the text fields.  
@@ -58,7 +57,7 @@ namespace Module9
 			Loaded += MainWindow_Loaded;
 		}
 
-		void MainWindow_Loaded(object sender, RoutedEventArgs e)
+		private void MainWindow_Loaded(object sender, RoutedEventArgs e)
 		{
 			const int studentCount = 3;
 			for (var i = 0; i < studentCount; i++)
