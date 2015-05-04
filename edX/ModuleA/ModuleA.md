@@ -11,7 +11,7 @@ Add it in the method `Linq3()` :
     var expensiveInStockProducts = products.Where(p => p.UnitsInStock > 0
                                    && p.UnitPrice > (decimal)3.00);
 
-We found 71 results.
+*We found 71 results.*
 
 ### Linq4()
 
@@ -20,11 +20,11 @@ This sample uses the where clause to find all customers in Washington.
 Add it in the method `Linq4()` :
 		
     var waCustomers = from c in customers
-    	let isNotNull = !String.IsNullOrWhiteSpace(c.Region)
-    	where isNotNull && c.Region.Equals("WA")
-    	select c;
+    	               let isNotNull = !String.IsNullOrWhiteSpace(c.Region)
+    	               where isNotNull && c.Region.Equals("WA")
+    	               select c;
 
-We found 3 results.
+*We found 3 results.*
 
 ## Second Part
 
