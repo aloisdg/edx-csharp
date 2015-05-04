@@ -19,7 +19,7 @@ This course is not a beginner course on C#, although beginners can still learn a
 * Perform object-oriented programming in C# ([Module 5][5] & [Module 6][6])
 * Work with collections ([Module 7][7])
 * Work with Generics ([Module 8][8])
-* Handle events and write delegates
+* Handle events and write delegates ([Module 9][9])
 * Query data using Language Integrated Query (LINQ)
 * Use threading, multitasking, and parallel programming
 * Program asynchronously
@@ -32,6 +32,7 @@ This course is not a beginner course on C#, although beginners can still learn a
 [6]: https://github.com/aloisdg/edX/blob/master/edX/Module6/Program.cs
 [7]: https://github.com/aloisdg/edX/blob/master/edX/Module7/Program.cs
 [8]: https://github.com/aloisdg/edX/blob/master/edX/Module8/Program.cs
+[9]: https://github.com/aloisdg/edX/blob/master/edX/Module9/MainWindow.xaml.cs
 
 ## Link
 
