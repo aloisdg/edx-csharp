@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,14 +35,17 @@ namespace Module9
 		}
 
 		// Create a collection to store Student objects.
-		private List<Student> _students = new List<Student>();
+		private readonly List<Student> _students = new List<Student>();
+		private int _index;
+
 
 		public MainWindow()
 		{
 			InitializeComponent();
 
 			// Using the form and button, create a number of Student objects and add them to the collection (at least 3)
-			// Loaded += MainWindow_Loaded;
+			// Uncomment the following line to use it
+			//Loaded += MainWindow_Loaded;
 		}
 
 		void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -63,11 +67,32 @@ namespace Module9
 			var lastName = !String.IsNullOrEmpty(txtLastName.Text) ? txtLastName.Text : String.Empty;
 			var program = !String.IsNullOrEmpty(txtCity.Text) ? txtCity.Text : String.Empty; // they made a typo here?
 			_students.Add(new Student(firstName, lastName, program));
+			_index = _students.Count;
 
 			// Clear the contents of the text boxes in the event handler.
 			txtFirstName.Clear();
 			txtLastName.Clear();
 			txtCity.Clear();
+		}
+
+		// There are two additional buttons on the form that can be used to move through a collection of students.
+		// Create event handlers for each of these buttons that will iterate over your Students collection
+		// and display the values in the text boxes
+		private void btnNext_Click(object sender, RoutedEventArgs e) { DisplayNext(true); }
+		private void btnPrevious_Click(object sender, RoutedEventArgs e) { DisplayNext(false); }
+
+		private void DisplayNext(bool isNext)
+		{
+			if ((isNext && _index + 1 > _students.Count)
+				|| (!isNext && _index - 1 < 0))
+				return;
+			var student = isNext ? _students[_index++] : _students[--_index];
+
+			// Use the syntax textbox.Text = <student property> for assigning the values
+			// from a Student object to the text boxes
+			txtFirstName.Text = student.FirstName;
+			txtLastName.Text = student.LastName;
+			txtCity.Text = student.Program;
 		}
 	}
 }
