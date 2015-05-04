@@ -8,19 +8,19 @@ namespace Module9
 	//		see line 72
 
 	//	2. Event handler creates a Student object using values from the text boxes on the form
-	//		see line 76
+	//		see line 75
 
 	//	3. Textbox values are cleared
-	//		see line 80
+	//		see line 78
 
 	//	4. Event handler adds a Student object to the List<T>
-	//		see line 85
+	//		see line 80
 
 	//	5. Next button displays each student's information in the text boxes
-	//		see line 93
+	//		see line 94
 
 	//	6. Previous button displays each student's information in the text boxes
-	//		see line 94
+	//		see line 95
 
 	public partial class MainWindow : Window
 	{
