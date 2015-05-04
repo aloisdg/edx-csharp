@@ -7,7 +7,7 @@
 		<Label x:Name="lblLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="72,127,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="lblTitle" Content="Students" HorizontalAlignment="Left" Margin="209,10,0,0" VerticalAlignment="Top" FontSize="24"/>
 		<Label x:Name="lblProgram" Content="Program:" HorizontalAlignment="Left" Margin="72,158,0,0" VerticalAlignment="Top"/>
-		<Button x:Name="btnCreateStudent" Content="Create Student" HorizontalAlignment="Left" Margin="242,227,0,0" VerticalAlignment="Top" Width="102"/>
+		<Button x:Name="btnCreateStudent" Content="Create Student" HorizontalAlignment="Left" Margin="242,227,0,0" VerticalAlignment="Top" Width="102" Click="btnCreateStudent_Click"/>
 		<TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="156,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287"/>
 		<TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="156,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287"/>
 		<TextBox x:Name="txtCity" HorizontalAlignment="Left" Height="23" Margin="156,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287"/>
