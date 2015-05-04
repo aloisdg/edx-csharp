@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 //  TODO : Move to "Mod_9_Homework"
 namespace Module9
 {
 	//	1. Event handler created for the Create Student button
-			
-	//	2. Event handler creates a Student object using values from the text boxes on the form
-	//	3. Textbox values are cleared
-	//	4. Event handler adds a Student object to the List<T>
-	//	5. Next button displays each student's information in the text boxes
-	//	6. Previous button displays each student's information in the text boxes
+	//		see line 72
 
+	//	2. Event handler creates a Student object using values from the text boxes on the form
+	//		see line 76
+
+	//	3. Textbox values are cleared
+	//		see line 80
+
+	//	4. Event handler adds a Student object to the List<T>
+	//		see line 85
+
+	//	5. Next button displays each student's information in the text boxes
+	//		see line 93
+
+	//	6. Previous button displays each student's information in the text boxes
+	//		see line 94
 
 	public partial class MainWindow : Window
 	{
@@ -46,15 +42,13 @@ namespace Module9
 		// Create a collection to store Student objects.
 		private readonly List<Student> _students = new List<Student>();
 		private int _index;
-		private bool _allowBlank;
 
 		public MainWindow()
 		{
 			InitializeComponent();
 
 			// Using the form and button, create a number of Student objects and add them to the collection (at least 3).
-			// Uncomment the following line to use it
-			//Loaded += MainWindow_Loaded;
+			Loaded += MainWindow_Loaded;
 		}
 
 		void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -73,16 +67,15 @@ namespace Module9
 		private void btnCreateStudent_Click(object sender, RoutedEventArgs e)
 		{
 			// they mixed program and city
-			_students.Add(new Student(
-				txtFirstName.Text.GetText(),
-				txtLastName.Text.GetText(),
-				txtCity.Text.GetText()));
-			_index = _students.Count;
+			var student = new Student(txtFirstName.Text, txtLastName.Text,txtCity.Text);
 
 			// Clear the contents of the text boxes in the event handler.
 			txtFirstName.Clear();
 			txtLastName.Clear();
 			txtCity.Clear();
+
+			_students.Add(student);
+			_index = _students.Count;
 		}
 
 		// There are two additional buttons on the form that can be used to move through a collection of students.
@@ -93,8 +86,7 @@ namespace Module9
 
 		private void DisplayNext(bool isNext)
 		{
-			if ((isNext && _index + 1 > _students.Count)
-				|| (!isNext && _index - 1 < 0))
+			if ((isNext && _index + 1 > _students.Count) || (!isNext && _index - 1 < 0))
 				return;
 			var student = isNext ? _students[_index++] : _students[--_index];
 
@@ -103,14 +95,6 @@ namespace Module9
 			txtFirstName.Text = student.FirstName;
 			txtLastName.Text = student.LastName;
 			txtCity.Text = student.Program;
-		}
-	}
-
-	static class Extensions
-	{
-		public static string GetText(this string text)
-		{
-			return !String.IsNullOrWhiteSpace(text) ? text : String.Empty;
 		}
 	}
 }
