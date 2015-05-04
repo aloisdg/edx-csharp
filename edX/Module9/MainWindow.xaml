@@ -3,6 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
-    </Grid>
+		<Label x:Name="lblFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="71,96,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lblLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="72,127,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lblTitle" Content="Students" HorizontalAlignment="Left" Margin="209,10,0,0" VerticalAlignment="Top" FontSize="24"/>
+		<Label x:Name="lblProgram" Content="Program:" HorizontalAlignment="Left" Margin="72,158,0,0" VerticalAlignment="Top"/>
+		<Button x:Name="btnCreateStudent" Content="Create Student" HorizontalAlignment="Left" Margin="242,227,0,0" VerticalAlignment="Top" Width="102"/>
+		<TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="156,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287"/>
+		<TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="156,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287"/>
+		<TextBox x:Name="txtCity" HorizontalAlignment="Left" Height="23" Margin="156,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287"/>
+		<Button x:Name="btnNext" Content="&gt;" HorizontalAlignment="Left" Margin="383,227,0,0" VerticalAlignment="Top" Width="29"/>
+		<Button x:Name="btnPrevious" Content="&lt;" HorizontalAlignment="Left" Margin="177,227,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-2.931,0.65"/>
+
+	</Grid>
 </Window>
