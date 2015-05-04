@@ -17,6 +17,15 @@ using System.Windows.Shapes;
 //  TODO : Move to "Mod_9_Homework"
 namespace Module9
 {
+	//	1. Event handler created for the Create Student button
+			
+	//	2. Event handler creates a Student object using values from the text boxes on the form
+	//	3. Textbox values are cleared
+	//	4. Event handler adds a Student object to the List<T>
+	//	5. Next button displays each student's information in the text boxes
+	//	6. Previous button displays each student's information in the text boxes
+
+
 	public partial class MainWindow : Window
 	{
 		// Add a new class to the project to represent a Student with three properties for the text fields.  
@@ -37,13 +46,13 @@ namespace Module9
 		// Create a collection to store Student objects.
 		private readonly List<Student> _students = new List<Student>();
 		private int _index;
-
+		private bool _allowBlank;
 
 		public MainWindow()
 		{
 			InitializeComponent();
 
-			// Using the form and button, create a number of Student objects and add them to the collection (at least 3)
+			// Using the form and button, create a number of Student objects and add them to the collection (at least 3).
 			// Uncomment the following line to use it
 			//Loaded += MainWindow_Loaded;
 		}
@@ -60,13 +69,14 @@ namespace Module9
 			}
 		}
 
-		// Implement the code in the button click event handler to create a Student object and add it to the collection
+		// Implement the code in the button click event handler to create a Student object and add it to the collection.
 		private void btnCreateStudent_Click(object sender, RoutedEventArgs e)
 		{
-			var firstName = !String.IsNullOrEmpty(txtFirstName.Text) ? txtFirstName.Text : String.Empty;
-			var lastName = !String.IsNullOrEmpty(txtLastName.Text) ? txtLastName.Text : String.Empty;
-			var program = !String.IsNullOrEmpty(txtCity.Text) ? txtCity.Text : String.Empty; // they made a typo here?
-			_students.Add(new Student(firstName, lastName, program));
+			// they mixed program and city
+			_students.Add(new Student(
+				txtFirstName.Text.GetText(),
+				txtLastName.Text.GetText(),
+				txtCity.Text.GetText()));
 			_index = _students.Count;
 
 			// Clear the contents of the text boxes in the event handler.
@@ -93,6 +103,14 @@ namespace Module9
 			txtFirstName.Text = student.FirstName;
 			txtLastName.Text = student.LastName;
 			txtCity.Text = student.Program;
+		}
+	}
+
+	static class Extensions
+	{
+		public static string GetText(this string text)
+		{
+			return !String.IsNullOrWhiteSpace(text) ? text : String.Empty;
 		}
 	}
 }
