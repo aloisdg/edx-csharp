@@ -5,30 +5,26 @@ using System.Windows;
 namespace Module9
 {
 	//	1. Event handler created for the Create Student button
-	//		see line 71
+	//		see line 67
 
 	//	2. Event handler creates a Student object using values from the text boxes on the form
-	//		see line 74
+	//		see line 70
 
 	//	3. Textbox values are cleared
-	//		see line 77
+	//		see line 73
 
 	//	4. Event handler adds a Student object to the List<T>
-	//		see line 79
+	//		see line 75
 
 	//	5. Next button displays each student's information in the text boxes
-	//		see line 93
+	//		see line 89
 
 	//	6. Previous button displays each student's information in the text boxes
-	//		see line 94
+	//		see line 90
 
 	public partial class MainWindow : Window
 	{
-		private enum Direction
-		{
-			Next,
-			Previous
-		}
+		private enum Direction { Next, Previous }
 
 		// Add a new class to the project to represent a Student with three properties for the text fields.  
 		private class Student
