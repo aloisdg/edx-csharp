@@ -26,18 +26,18 @@ namespace Module9
 	{
 		private enum Direction { Next, Previous }
 
-		// Add a new class to the project to represent a Student with three properties for the text fields.  
+		// Add a new class to the project to represent a Student with three properties for the text fields.
 		private class Student
 		{
 			public string FirstName { get; private set; }
 			public string LastName { get; private set; }
-			public string Program { get; private set; }
+			public string City { get; private set; }
 
-			public Student(string firstName, string lastName, string program)
+			public Student(string firstName, string lastName, string city)
 			{
 				FirstName = firstName;
 				LastName = lastName;
-				Program = program;
+				City = city;
 			}
 		}
 
@@ -79,7 +79,7 @@ namespace Module9
 		// Implement the code in the button click event handler to create a Student object and add it to the collection.
 		private void btnCreateStudent_Click(object sender, RoutedEventArgs e)
 		{
-			// they mixed program and city
+			// they mixed city and city
 			var student = new Student(txtFirstName.Text, txtLastName.Text, txtCity.Text);
 
 			// Clear the contents of the text boxes in the event handler.
@@ -111,14 +111,14 @@ namespace Module9
 
 			// Use the syntax textbox.Text = <student property> for assigning the values
 			// from a Student object to the text boxes
-			SetText(student.FirstName, student.LastName, student.Program);
+			SetText(student.FirstName, student.LastName, student.City);
 		}
 
-		private void SetText(string firstName, string lastName, string program)
+		private void SetText(string firstName, string lastName, string city)
 		{
 			txtFirstName.Text = firstName;
 			txtLastName.Text = lastName;
-			txtCity.Text = program;
+			txtCity.Text = city;
 		}
 	}
 }
