@@ -106,7 +106,10 @@ namespace Module9
 		{
 			var isNext = direction.Equals(Direction.Next);
 			if ((isNext && _index + 1 > _students.Count) || (!isNext && _index - 1 < 0))
+			{
+				MessageBox.Show("You reached a limit.");
 				return;
+			}
 			var student = isNext ? _students[_index++] : _students[--_index];
 
 			// Use the syntax textbox.Text = <student property> for assigning the values
