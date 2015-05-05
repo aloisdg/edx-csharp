@@ -1,26 +1,27 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 
 //  TODO : Move to "Mod_9_Homework"
 namespace Module9
 {
 	//	1. Event handler created for the Create Student button
-	//		see line 67
+	//		see line 81
 
 	//	2. Event handler creates a Student object using values from the text boxes on the form
-	//		see line 70
+	//		see line 84
 
 	//	3. Textbox values are cleared
-	//		see line 73
+	//		see line 87
 
 	//	4. Event handler adds a Student object to the List<T>
-	//		see line 75
-
-	//	5. Next button displays each student's information in the text boxes
 	//		see line 89
 
+	//	5. Next button displays each student's information in the text boxes
+	//		see line 103
+
 	//	6. Previous button displays each student's information in the text boxes
-	//		see line 90
+	//		see line 104
 
 	public partial class MainWindow : Window
 	{
@@ -55,8 +56,21 @@ namespace Module9
 
 		private void MainWindow_Loaded(object sender, RoutedEventArgs e)
 		{
-			const int studentCount = 3;
-			for (var i = 0; i < studentCount; i++)
+			HandleEvent();
+			AddStudent(3);
+		}
+
+		private void HandleEvent()
+		{
+			btnPrevious.Click += btnPrevious_Click;
+			btnNext.Click += btnNext_Click;
+			btnCreateStudent.Click += btnCreateStudent_Click;
+
+		}
+
+		private void AddStudent(int count)
+		{
+			for (var i = 0; i < count; i++)
 			{
 				SetText("Harry" + i, "Potter" + i, "Little Whinging" + i);
 				btnCreateStudent_Click(this, new RoutedEventArgs());
@@ -67,7 +81,7 @@ namespace Module9
 		private void btnCreateStudent_Click(object sender, RoutedEventArgs e)
 		{
 			// they mixed program and city
-			var student = new Student(txtFirstName.Text, txtLastName.Text,txtCity.Text);
+			var student = new Student(txtFirstName.Text, txtLastName.Text, txtCity.Text);
 
 			// Clear the contents of the text boxes in the event handler.
 			ClearText();
