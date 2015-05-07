@@ -28,7 +28,6 @@ Add it in the method `Linq4()` :
 
 ## Second Part
 
-
 ### Linq30()
 
 This sample uses orderby to sort a list of products by name. Use the "descending" keyword at the end of the clause to perform a reverse ordering.
