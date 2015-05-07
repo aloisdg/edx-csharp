@@ -20,9 +20,9 @@ This sample uses the where clause to find all customers in Washington.
 Add it in the method `Linq4()` :
 		
     var waCustomers = from c in customers
-    	               let isNotNull = !String.IsNullOrWhiteSpace(c.Region)
-    	               where isNotNull && c.Region.Equals("WA")
-    	               select c;
+    	              let isNotNull = !String.IsNullOrWhiteSpace(c.Region)
+    	              where isNotNull && c.Region.Equals("WA")
+    	              select c;
 
 *We found 3 results.*
 
