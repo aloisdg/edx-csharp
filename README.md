@@ -34,8 +34,8 @@ This course is not a beginner course on C#, although beginners can still learn a
 [8]: https://github.com/aloisdg/edX/blob/master/edX/Module8/Program.cs
 [9]: https://github.com/aloisdg/edX/blob/master/edX/Module9/MainWindow.xaml.cs
 [10]: https://github.com/aloisdg/edX/blob/master/edX/ModuleA/ModuleA.md
-[11]: https://github.com/aloisdg/edX/blob/master/edX/ModuleB/ModuleB.md
-[12]: https://github.com/aloisdg/edX/blob/master/edX/ModuleC/ModuleC.md
+[11]: https://github.com/aloisdg/edX/blob/master/edX/ModuleB/MainWindow.xaml.cs
+[12]: https://github.com/aloisdg/edX/blob/master/edX/ModuleC/MainWindow.xaml.cs
 
 ## Link
 
