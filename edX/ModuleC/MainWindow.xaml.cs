@@ -37,27 +37,27 @@ namespace ModuleC
 			ReadFile();
 		}
 
-		public void WriteFile()
+		public async void WriteFile()
 		{
 			string filePath = @"SampleFile.txt";
 			string text = txtContents.Text;
 
-			WriteText(filePath, text);
+			await WriteTextAsync(filePath, text);
 		}
 
-		private void WriteText(string filePath, string text)
+		private Task WriteTextAsync(string filePath, string text)
 		{
 			byte[] encodedText = Encoding.Unicode.GetBytes(text);
 
 			using (FileStream sourceStream = new FileStream(filePath,
 			    FileMode.Append, FileAccess.Write, FileShare.None,
-			    bufferSize: 4096))
+			    4096, FileOptions.Asynchronous))
 			{
-				sourceStream.Write(encodedText, 0, encodedText.Length);
-			};
+				return sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
+			}
 		}
 
-		public void ReadFile()
+		public async void ReadFile()
 		{
 			string filePath = @"SampleFile.txt";
 
@@ -69,7 +69,7 @@ namespace ModuleC
 			{
 				try
 				{
-					string text = ReadText(filePath);
+					string text = await ReadTextAsync(filePath);
 					txtContents.Text = text;
 				}
 				catch (Exception ex)
@@ -79,17 +79,17 @@ namespace ModuleC
 			}
 		}
 
-		private string ReadText(string filePath)
+		private async Task<string> ReadTextAsync(string filePath)
 		{
 			using (FileStream sourceStream = new FileStream(filePath,
 			    FileMode.Open, FileAccess.Read, FileShare.Read,
-			    bufferSize: 4096))
+			    4096, FileOptions.Asynchronous))
 			{
 				StringBuilder sb = new StringBuilder();
 
 				byte[] buffer = new byte[0x1000];
 				int numRead;
-				while ((numRead = sourceStream.Read(buffer, 0, buffer.Length)) != 0)
+				while ((numRead = await sourceStream.ReadAsync(buffer, 0, buffer.Length)) != 0)
 				{
 					string text = Encoding.Unicode.GetString(buffer, 0, numRead);
 					sb.Append(text);
